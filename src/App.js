@@ -11,6 +11,8 @@ function App() {
 
   useEffect(() => {
     axios.get(currentPageUrl).then((res) => {
+      setNextPageUrl(res.data.next);
+      setPrevPageUrl(res.data.previous);
       setPokemon(res.data.results.map((p) => p.name));
     });
   }, [currentPageUrl]);
