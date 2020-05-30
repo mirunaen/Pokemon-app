@@ -20,6 +20,8 @@ function App() {
     });
   }, [currentPageUrl]);
 
+  if (loading) return "Loading...";
+
   return <PokemonList pokemon={pokemon} />;
 }
 
