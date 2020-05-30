@@ -10,7 +10,7 @@ function App() {
     axios.get(currentPageUrl).then((res) => {
       setPokemon(res.data.results.map((p) => p.name));
     });
-  }, []);
+  }, [currentPageUrl]);
 
   return <PokemonList pokemon={pokemon} />;
 }
