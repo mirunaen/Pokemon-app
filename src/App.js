@@ -6,6 +6,9 @@ function App() {
   const [currentPageUrl, setcurrentPageUrl] = useState(
     "https://pokeapi.co/api/v2/pokemon"
   );
+  const [nextPageUrl, setNextPageUrl] = useState();
+  const [prevPageUrl, setPrevPageUrl] = useState();
+
   useEffect(() => {
     axios.get(currentPageUrl).then((res) => {
       setPokemon(res.data.results.map((p) => p.name));
