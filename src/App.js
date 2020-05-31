@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import PokemonList from "./PokemonList";
 import axios from "axios";
+import Pagination from "./Pagination.js";
 function App() {
   const [pokemon, setPokemon] = useState([]);
-  const [currentPageUrl, setcurrentPageUrl] = useState(
+  const [currentPageUrl, setCurrentPageUrl] = useState(
     "https://pokeapi.co/api/v2/pokemon"
   );
   const [nextPageUrl, setNextPageUrl] = useState();
@@ -25,13 +26,28 @@ function App() {
       });
 
     return () => {
-      cancel.cancel();
+      cancel();
     };
   }, [currentPageUrl]);
 
+  function goToNextPage() {
+    setCurrentPageUrl(nextPageUrl);
+  }
+
+  function goToPrevPage() {
+    setCurrentPageUrl(prevPageUrl);
+  }
   if (loading) return "Loading...";
 
-  return <PokemonList pokemon={pokemon} />;
+  return (
+    <>
+      <PokemonList pokemon={pokemon} />
+      <Pagination
+        goToNextPage={nextPageUrl ? goToNextPage : null}
+        goToPrevPage={prevPageUrl ? goToPrevPage : null}
+      />
+    </>
+  );
 }
 
 export default App;
