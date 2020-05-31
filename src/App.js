@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PokemonList from "./PokemonList";
 import axios from "axios";
+import "../src/styles.css";
 import Pagination from "./Pagination.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -43,14 +44,12 @@ function App() {
 
   return (
     <>
-      <div className="p-3 mb-2 bg-gradient-primary text-black">
-        <h1>Pokemon List</h1>
-        <PokemonList pokemon={pokemon} />
-        <Pagination
-          goToNextPage={nextPageUrl ? goToNextPage : null}
-          goToPrevPage={prevPageUrl ? goToPrevPage : null}
-        />
-      </div>
+      <h1>Pokemon List</h1>
+      <PokemonList pokemon={pokemon} />
+      <Pagination
+        goToNextPage={nextPageUrl ? goToNextPage : null}
+        goToPrevPage={prevPageUrl ? goToPrevPage : null}
+      />
     </>
   );
 }
