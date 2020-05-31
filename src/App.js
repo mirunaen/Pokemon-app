@@ -43,11 +43,14 @@ function App() {
 
   return (
     <>
-      <PokemonList pokemon={pokemon} />
-      <Pagination
-        goToNextPage={nextPageUrl ? goToNextPage : null}
-        goToPrevPage={prevPageUrl ? goToPrevPage : null}
-      />
+      <div className="p-3 mb-2 bg-gradient-primary text-black">
+        <h1>Pokemon List</h1>
+        <PokemonList pokemon={pokemon} />
+        <Pagination
+          goToNextPage={nextPageUrl ? goToNextPage : null}
+          goToPrevPage={prevPageUrl ? goToPrevPage : null}
+        />
+      </div>
     </>
   );
 }
