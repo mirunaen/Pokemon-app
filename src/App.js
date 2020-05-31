@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import PokemonList from "./PokemonList";
 import axios from "axios";
 import Pagination from "./Pagination.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
   const [pokemon, setPokemon] = useState([]);
   const [currentPageUrl, setCurrentPageUrl] = useState(
